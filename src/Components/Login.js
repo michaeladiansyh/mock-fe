@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { useUserAuth } from "../Context/UserAuthContext"
 import {
@@ -9,8 +9,11 @@ import {
 } from '@chakra-ui/react'
 
 const Login = () => {
-    const { setEmail, setPassword, email, password, isError, handleLogin } = useUserAuth()
+    const { setEmail, setPassword, email, password, isError, handleLogin, handleClear } = useUserAuth()
 
+    useEffect(() => {
+        handleClear()
+    }, [])
     return (
         <div className='h-screen flex flex-col justify-center items-center'>
             <div className="w-1/4 p-5 bg-white rounded shadow-lg hover:ring-2 ring-slate-300">

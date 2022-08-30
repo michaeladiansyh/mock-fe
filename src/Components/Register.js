@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { useUserAuth } from "../Context/UserAuthContext"
 import {
@@ -9,7 +9,10 @@ import {
 } from '@chakra-ui/react'
 
 const Register = () => {
-    const { setName, setEmail, setPassword, name, email, password, isError, isMsg, handleRegister } = useUserAuth()
+    const { setName, setEmail, setPassword, name, email, password, isError, isMsg, handleRegister, handleClear } = useUserAuth()
+    useEffect(() => {
+        handleClear()
+    }, [])
     return (
         <div className='h-screen flex flex-col justify-center items-center'>
             <div className="w-1/4 p-5 bg-white rounded shadow-lg hover:ring-2 ring-slate-300">

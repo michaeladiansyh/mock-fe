@@ -13,6 +13,11 @@ export function UserAuthContextProvider({ children }) {
     const [isError, setIsError] = useState(false)
     const [isMsg, setIsMsg] = useState("")
     const navigate = useNavigate()
+    const handleClear = () => {
+        setName("")
+        setEmail("")
+        setPassword("")
+    }
 
     const handleLogin = async (event) => {
         event.preventDefault()
@@ -62,7 +67,8 @@ export function UserAuthContextProvider({ children }) {
         setName,
         name,
         isMsg,
-        handleRegister
+        handleRegister,
+        handleClear
     }
     return (
         <userAuthContext.Provider value={value}>{children}</userAuthContext.Provider>

@@ -3,7 +3,6 @@ import {
 } from "react";
 import axios from "axios"
 import { getToken } from "../utils/auth"
-import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 const productContext = createContext()
@@ -21,6 +20,12 @@ export function ProductContextProvider({ children }) {
     }
     const PROXY_URL = "https://test-binar.herokuapp.com/"
     const URL = 'v1/products';
+    const handleClear = () => {
+        setId("")
+        setName("")
+        setPrice("")
+        setImageUrl("")
+    }
 
     const handleGetData = async () => {
         try {
@@ -149,7 +154,8 @@ export function ProductContextProvider({ children }) {
         imageUrl,
         handleDelete,
         handleGetDataById,
-        handleUpdate
+        handleUpdate,
+        handleClear
     }
     return (
         <productContext.Provider value={value}>{children}</productContext.Provider>

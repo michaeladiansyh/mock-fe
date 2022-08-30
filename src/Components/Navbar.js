@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react'
 
 const Navbar = () => {
-    const { name, setName, price, setPrice, imageUrl, setImageUrl, handleAddData } = useProduct()
+    const { name, setName, price, setPrice, imageUrl, setImageUrl, handleAddData, handleClear } = useProduct()
     const token = getToken()
     const navigate = useNavigate()
     const handleLogOut = () => {
@@ -29,13 +29,17 @@ const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialRef = React.useRef(null)
     const finalRef = React.useRef(null)
+    const handleClick = () => {
+        onOpen()
+        handleClear()
+    }
     return (
         <nav className={`${token ? "block" : "hidden"} bg-white border-gray-200 px-2 py-2.5 dark:bg-gray-900`}>
             <div className="relative flex space-x-10">
                 <Link to="/">
                     <span className="col-span-1 self-center text-xl font-semibold whitespace-nowrap dark:text-white">Product List</span>
                 </Link>
-                <Button type='submit' onClick={onOpen}>Create New</Button>
+                <Button type='submit' onClick={handleClick}>Create New</Button>
                 <div className='absolute right-10'>
                     <Button onClick={handleLogOut}>Logout</Button>
                 </div>
