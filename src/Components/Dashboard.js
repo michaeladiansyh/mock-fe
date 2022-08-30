@@ -13,15 +13,12 @@ import {
 } from '@chakra-ui/react'
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons"
 import { useProduct } from "../Context/ProductContext"
+import { getToken } from "../utils/auth"
 const Dashboard = () => {
     const { products, handleGetData,
         handleDelete, handleGetDataById,
         setName, setPrice, setImageUrl, handleUpdate,
         name, price, imageUrl } = useProduct()
-
-    useEffect(() => {
-        handleGetData()
-    }, [])
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialRef = React.useRef(null)
@@ -30,6 +27,11 @@ const Dashboard = () => {
         onOpen()
         handleGetDataById(id)
     }
+
+    useEffect(() => {
+        getToken()
+        handleGetData()
+    }, [])
     return (
         <div className='mx-auto mt-10'>
             <div className='grid grid-cols-3 gap-10 justify-items-center'>

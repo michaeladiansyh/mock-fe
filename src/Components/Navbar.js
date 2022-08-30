@@ -57,15 +57,15 @@ const Navbar = () => {
                         <ModalCloseButton />
                         <ModalBody pb={6}>
                             <FormControl>
-                                <Input ref={initialRef} placeholder='Product Name' onChange={e => setName(e.target.value)} value={name} />
+                                <Input ref={initialRef} placeholder='Product Name' onChange={e => setName(e.target.value)} value={name} required />
                             </FormControl>
 
                             <FormControl mt={4}>
-                                <Input placeholder='Price (Dollar USD)' onChange={e => setPrice(e.target.value)} value={price} />
+                                <Input placeholder='Price (Dollar USD)' onChange={e => setPrice(e.target.value)} value={price} required />
                             </FormControl>
 
                             <FormControl mt={4}>
-                                <Input placeholder='Image url' onChange={e => setImageUrl(e.target.value)} value={imageUrl} />
+                                <Input placeholder='Image url' onChange={e => setImageUrl(e.target.value)} value={imageUrl} required />
                             </FormControl>
                         </ModalBody>
 

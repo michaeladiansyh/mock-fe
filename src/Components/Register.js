@@ -25,9 +25,9 @@ const Register = () => {
                                 {isMsg}
                             </Alert> : ""
                     }
-                    <Input type='text' placeholder='Name' onChange={e => setName(e.target.value)} value={name} />
-                    <Input type='email' placeholder='Email' onChange={e => setEmail(e.target.value)} value={email} />
-                    <Input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)} value={password} />
+                    <Input type='text' placeholder='Name' onChange={e => setName(e.target.value)} value={name} required />
+                    <Input type='email' placeholder='Email' onChange={e => setEmail(e.target.value)} value={email} required />
+                    <Input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)} value={password} required />
                     <Button type='submit' className='w-full'>Register</Button>
                 </form>
             </div>

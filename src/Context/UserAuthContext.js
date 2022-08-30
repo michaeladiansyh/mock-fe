@@ -29,6 +29,7 @@ export function UserAuthContextProvider({ children }) {
             if (response.data.result) {
                 setUserLocal(response.data.result.access_token)
                 navigate("/dashboard", { replace: true })
+                window.location.reload()
             } else {
                 setIsError(true)
             }

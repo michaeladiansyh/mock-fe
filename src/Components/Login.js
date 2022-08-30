@@ -26,8 +26,8 @@ const Login = () => {
                                 Wrong Email / Password
                             </Alert> : ""
                     }
-                    <Input type='email' placeholder='Email' onChange={e => setEmail(e.target.value)} value={email} />
-                    <Input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)} value={password} />
+                    <Input type='email' placeholder='Email' onChange={e => setEmail(e.target.value)} value={email} required />
+                    <Input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)} value={password} required />
                     <Button type='submit' className='w-full'>Login</Button>
                 </form>
             </div>
